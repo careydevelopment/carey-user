@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { USER_CONFIG_TOKEN } from './token';
-import { UserConfig } from './user-config';
-import { UserService } from './user.service';
+import { USER_CONFIG_TOKEN } from './model/token';
+import { UserConfig } from './model/user-config';
+import { UserService } from './service/user.service';
 
 
 @NgModule({
