@@ -13,7 +13,7 @@ const httpOptions = {
 };
 
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class UserService {
 
   private _user: User = null;
