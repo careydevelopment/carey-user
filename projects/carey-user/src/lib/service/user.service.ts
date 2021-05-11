@@ -12,8 +12,9 @@ const httpOptions = {
   })
 };
 
+const USER = 'careydev_user';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class UserService {
 
   private _user: User = null;
@@ -22,7 +23,20 @@ export class UserService {
     @Inject(USER_CONFIG_TOKEN) private readonly config: UserConfig) { }
 
   get user(): User {
-    return this._user;
+    if (this._user) {
+      return this._user;
+    } else {
+      let userJson: string = localStorage.getItem(USER);
+
+      if (userJson) {
+        let user: User = JSON.parse(userJson) as User;
+        this._user = user;
+
+        return user;
+      } else {
+        return null;
+      }
+    }
   }
 
   set user(user: User) {
